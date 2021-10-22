@@ -12,6 +12,7 @@
     <modules>
         <module>The-front-end</module>
         <module>The-back-end</module>
+        <module>The-lzj-end</module>
     </modules>
 
     <dependencies>
