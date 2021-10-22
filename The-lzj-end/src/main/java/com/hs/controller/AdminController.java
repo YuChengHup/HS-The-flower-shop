@@ -3,7 +3,9 @@ package com.hs.controller;
 import com.hs.entity.Admin;
 import com.hs.service.AdminService;
 import com.hs.util.RespBean;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
