@@ -1,6 +1,11 @@
 package com.hs.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -9,6 +14,9 @@ import java.util.Date;
  * @author makejava
  * @since 2021-10-22 20:54:50
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Statistic implements Serializable {
     private static final long serialVersionUID = 874040599853137476L;
     /**
@@ -18,7 +26,7 @@ public class Statistic implements Serializable {
     /**
     * 统计日期
     */
-    private Date staDate;
+    private LocalDateTime staDate;
     /**
     * 统计商品
     */
@@ -30,11 +38,11 @@ public class Statistic implements Serializable {
     /**
     * 总进价
     */
-    private Object staPurchPrice;
+    private Double staPurchPrice;
     /**
     * 总售价
     */
-    private Object staPrice;
+    private Double staPrice;
     /**
     * 备用
     */
@@ -44,69 +52,5 @@ public class Statistic implements Serializable {
     */
     private String bySp2;
 
-
-    public Integer getStaId() {
-        return staId;
-    }
-
-    public void setStaId(Integer staId) {
-        this.staId = staId;
-    }
-
-    public Date getStaDate() {
-        return staDate;
-    }
-
-    public void setStaDate(Date staDate) {
-        this.staDate = staDate;
-    }
-
-    public Integer getComId() {
-        return comId;
-    }
-
-    public void setComId(Integer comId) {
-        this.comId = comId;
-    }
-
-    public Integer getStaNum() {
-        return staNum;
-    }
-
-    public void setStaNum(Integer staNum) {
-        this.staNum = staNum;
-    }
-
-    public Object getStaPurchPrice() {
-        return staPurchPrice;
-    }
-
-    public void setStaPurchPrice(Object staPurchPrice) {
-        this.staPurchPrice = staPurchPrice;
-    }
-
-    public Object getStaPrice() {
-        return staPrice;
-    }
-
-    public void setStaPrice(Object staPrice) {
-        this.staPrice = staPrice;
-    }
-
-    public String getBySp1() {
-        return bySp1;
-    }
-
-    public void setBySp1(String bySp1) {
-        this.bySp1 = bySp1;
-    }
-
-    public String getBySp2() {
-        return bySp2;
-    }
-
-    public void setBySp2(String bySp2) {
-        this.bySp2 = bySp2;
-    }
 
 }

@@ -1,5 +1,9 @@
 package com.hs.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +12,9 @@ import java.io.Serializable;
  * @author makejava
  * @since 2021-10-22 20:54:50
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Token implements Serializable {
     private static final long serialVersionUID = 863943530371932917L;
     /**
@@ -21,31 +28,9 @@ public class Token implements Serializable {
     /**
     * 是否登录，0否1是
     */
-    private Object isLogin;
+    private Integer isLogin;
 
 
-    public String getToken() {
-        return token;
-    }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Integer getConId() {
-        return conId;
-    }
-
-    public void setConId(Integer conId) {
-        this.conId = conId;
-    }
-
-    public Object getIsLogin() {
-        return isLogin;
-    }
-
-    public void setIsLogin(Object isLogin) {
-        this.isLogin = isLogin;
-    }
 
 }

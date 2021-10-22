@@ -46,7 +46,7 @@ public class Consumer implements Serializable {
     /**
     * 帐号状态 ，是否冻结，0否
     */
-    private Object conStatus;
+    private Integer conStatus;
     /**
     * 插入时间
     */
@@ -133,7 +133,7 @@ public class Consumer implements Serializable {
         return conStatus;
     }
 
-    public void setConStatus(Object conStatus) {
+    public void setConStatus(Integer conStatus) {
         this.conStatus = conStatus;
     }
 

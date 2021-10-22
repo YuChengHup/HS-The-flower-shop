@@ -1,5 +1,9 @@
 package com.hs.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +12,9 @@ import java.io.Serializable;
  * @author makejava
  * @since 2021-10-22 20:54:50
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Photo implements Serializable {
     private static final long serialVersionUID = 639108154124251042L;
     /**
@@ -25,7 +32,7 @@ public class Photo implements Serializable {
     /**
     * 是否是默认，0否1是
     */
-    private Object phoDefault;
+    private Integer phoDefault;
     /**
     * 备用
     */
@@ -36,52 +43,6 @@ public class Photo implements Serializable {
     private String bySp2;
 
 
-    public Integer getPhoId() {
-        return phoId;
-    }
 
-    public void setPhoId(Integer phoId) {
-        this.phoId = phoId;
-    }
-
-    public String getPhoUrl() {
-        return phoUrl;
-    }
-
-    public void setPhoUrl(String phoUrl) {
-        this.phoUrl = phoUrl;
-    }
-
-    public Integer getComId() {
-        return comId;
-    }
-
-    public void setComId(Integer comId) {
-        this.comId = comId;
-    }
-
-    public Object getPhoDefault() {
-        return phoDefault;
-    }
-
-    public void setPhoDefault(Object phoDefault) {
-        this.phoDefault = phoDefault;
-    }
-
-    public String getBySp1() {
-        return bySp1;
-    }
-
-    public void setBySp1(String bySp1) {
-        this.bySp1 = bySp1;
-    }
-
-    public String getBySp2() {
-        return bySp2;
-    }
-
-    public void setBySp2(String bySp2) {
-        this.bySp2 = bySp2;
-    }
 
 }

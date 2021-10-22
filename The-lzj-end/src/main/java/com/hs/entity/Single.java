@@ -1,6 +1,11 @@
 package com.hs.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -9,6 +14,9 @@ import java.util.Date;
  * @author makejava
  * @since 2021-10-22 20:54:50
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Single implements Serializable {
     private static final long serialVersionUID = 971143442094529320L;
     /**
@@ -30,15 +38,15 @@ public class Single implements Serializable {
     /**
     * 总价格
     */
-    private Object sinPrice;
+    private Double sinPrice;
     /**
     * 插入时间
     */
-    private Date gmtCreate;
+    private LocalDateTime gmtCreate;
     /**
     * 修改时间
     */
-    private Date gmtModified;
+    private LocalDateTime gmtModified;
     /**
     * 备用
     */
@@ -49,76 +57,5 @@ public class Single implements Serializable {
     private String bySp2;
 
 
-    public Integer getSinId() {
-        return sinId;
-    }
-
-    public void setSinId(Integer sinId) {
-        this.sinId = sinId;
-    }
-
-    public Integer getOrdId() {
-        return ordId;
-    }
-
-    public void setOrdId(Integer ordId) {
-        this.ordId = ordId;
-    }
-
-    public Integer getComId() {
-        return comId;
-    }
-
-    public void setComId(Integer comId) {
-        this.comId = comId;
-    }
-
-    public Integer getSinNum() {
-        return sinNum;
-    }
-
-    public void setSinNum(Integer sinNum) {
-        this.sinNum = sinNum;
-    }
-
-    public Object getSinPrice() {
-        return sinPrice;
-    }
-
-    public void setSinPrice(Object sinPrice) {
-        this.sinPrice = sinPrice;
-    }
-
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public String getBySp1() {
-        return bySp1;
-    }
-
-    public void setBySp1(String bySp1) {
-        this.bySp1 = bySp1;
-    }
-
-    public String getBySp2() {
-        return bySp2;
-    }
-
-    public void setBySp2(String bySp2) {
-        this.bySp2 = bySp2;
-    }
 
 }
