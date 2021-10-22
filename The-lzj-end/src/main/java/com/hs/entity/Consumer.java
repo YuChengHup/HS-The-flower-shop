@@ -1,6 +1,11 @@
 package com.hs.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -9,6 +14,9 @@ import java.util.Date;
  * @author makejava
  * @since 2021-10-22 20:54:50
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Consumer implements Serializable {
     private static final long serialVersionUID = -63273240108979174L;
     /**
@@ -50,11 +58,11 @@ public class Consumer implements Serializable {
     /**
     * 插入时间
     */
-    private Date gmtCreate;
+    private LocalDateTime gmtCreate;
     /**
     * 修改时间
     */
-    private Date gmtModified;
+    private LocalDateTime gmtModified;
     /**
     * 备用
     */
@@ -64,109 +72,5 @@ public class Consumer implements Serializable {
     */
     private String bySp2;
 
-
-    public Integer getConId() {
-        return conId;
-    }
-
-    public void setConId(Integer conId) {
-        this.conId = conId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
-    }
-
-    public String getConName() {
-        return conName;
-    }
-
-    public void setConName(String conName) {
-        this.conName = conName;
-    }
-
-    public String getConSex() {
-        return conSex;
-    }
-
-    public void setConSex(String conSex) {
-        this.conSex = conSex;
-    }
-
-    public String getConTel() {
-        return conTel;
-    }
-
-    public void setConTel(String conTel) {
-        this.conTel = conTel;
-    }
-
-    public String getConEmail() {
-        return conEmail;
-    }
-
-    public void setConEmail(String conEmail) {
-        this.conEmail = conEmail;
-    }
-
-    public String getConPhoto() {
-        return conPhoto;
-    }
-
-    public void setConPhoto(String conPhoto) {
-        this.conPhoto = conPhoto;
-    }
-
-    public Object getConStatus() {
-        return conStatus;
-    }
-
-    public void setConStatus(Integer conStatus) {
-        this.conStatus = conStatus;
-    }
-
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
-
-    public String getBySp1() {
-        return bySp1;
-    }
-
-    public void setBySp1(String bySp1) {
-        this.bySp1 = bySp1;
-    }
-
-    public String getBySp2() {
-        return bySp2;
-    }
-
-    public void setBySp2(String bySp2) {
-        this.bySp2 = bySp2;
-    }
 
 }
