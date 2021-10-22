@@ -13,6 +13,7 @@
         <module>The-front-end</module>
         <module>The-back-end</module>
         <module>The-lzj-end</module>
+        <module>shanghao</module>
     </modules>
 
     <dependencies>
