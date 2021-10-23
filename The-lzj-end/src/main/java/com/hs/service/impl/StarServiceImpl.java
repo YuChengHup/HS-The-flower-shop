@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Star;
+import com.hs.mapper.StarMapper;
 import com.hs.service.StarService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("starService")
 public class StarServiceImpl implements StarService {
     @Resource
-    private StarDao starDao;
+    private StarMapper starMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class StarServiceImpl implements StarService {
      */
     @Override
     public Star queryById(Integer staId) {
-        return this.starDao.queryById(staId);
+        return this.starMapper.queryById(staId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class StarServiceImpl implements StarService {
      */
     @Override
     public List<Star> queryAllByLimit(int offset, int limit) {
-        return this.starDao.queryAllByLimit(offset, limit);
+        return this.starMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class StarServiceImpl implements StarService {
      */
     @Override
     public Star insert(Star star) {
-        this.starDao.insert(star);
+        this.starMapper.insert(star);
         return star;
     }
 
@@ -61,7 +62,7 @@ public class StarServiceImpl implements StarService {
      */
     @Override
     public Star update(Star star) {
-        this.starDao.update(star);
+        this.starMapper.update(star);
         return this.queryById(star.getStaId());
     }
 
@@ -73,6 +74,6 @@ public class StarServiceImpl implements StarService {
      */
     @Override
     public boolean deleteById(Integer staId) {
-        return this.starDao.deleteById(staId) > 0;
+        return this.starMapper.deleteById(staId) > 0;
     }
 }

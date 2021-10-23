@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Admin;
+import com.hs.mapper.AdminMapper;
 import com.hs.service.AdminService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
     @Resource
-    private AdminDao adminDao;
+    private AdminMapper adminMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public Admin queryById(Integer admId) {
-        return this.adminDao.queryById(admId);
+        return this.adminMapper.queryById(admId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public List<Admin> queryAllByLimit(int offset, int limit) {
-        return this.adminDao.queryAllByLimit(offset, limit);
+        return this.adminMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public Admin insert(Admin admin) {
-        this.adminDao.insert(admin);
+        this.adminMapper.insert(admin);
         return admin;
     }
 
@@ -61,7 +62,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public Admin update(Admin admin) {
-        this.adminDao.update(admin);
+        this.adminMapper.update(admin);
         return this.queryById(admin.getAdmId());
     }
 
@@ -73,6 +74,6 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public boolean deleteById(Integer admId) {
-        return this.adminDao.deleteById(admId) > 0;
+        return this.adminMapper.deleteById(admId) > 0;
     }
 }

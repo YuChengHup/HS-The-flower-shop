@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Statistic;
+import com.hs.mapper.StatisticMapper;
 import com.hs.service.StatisticService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("statisticService")
 public class StatisticServiceImpl implements StatisticService {
     @Resource
-    private StatisticDao statisticDao;
+    private StatisticMapper statisticMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class StatisticServiceImpl implements StatisticService {
      */
     @Override
     public Statistic queryById(Integer staId) {
-        return this.statisticDao.queryById(staId);
+        return this.statisticMapper.queryById(staId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class StatisticServiceImpl implements StatisticService {
      */
     @Override
     public List<Statistic> queryAllByLimit(int offset, int limit) {
-        return this.statisticDao.queryAllByLimit(offset, limit);
+        return this.statisticMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class StatisticServiceImpl implements StatisticService {
      */
     @Override
     public Statistic insert(Statistic statistic) {
-        this.statisticDao.insert(statistic);
+        this.statisticMapper.insert(statistic);
         return statistic;
     }
 
@@ -61,7 +62,7 @@ public class StatisticServiceImpl implements StatisticService {
      */
     @Override
     public Statistic update(Statistic statistic) {
-        this.statisticDao.update(statistic);
+        this.statisticMapper.update(statistic);
         return this.queryById(statistic.getStaId());
     }
 
@@ -73,6 +74,6 @@ public class StatisticServiceImpl implements StatisticService {
      */
     @Override
     public boolean deleteById(Integer staId) {
-        return this.statisticDao.deleteById(staId) > 0;
+        return this.statisticMapper.deleteById(staId) > 0;
     }
 }

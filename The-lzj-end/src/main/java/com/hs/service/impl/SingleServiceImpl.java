@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Single;
+import com.hs.mapper.SingleMapper;
 import com.hs.service.SingleService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("singleService")
 public class SingleServiceImpl implements SingleService {
     @Resource
-    private SingleDao singleDao;
+    private SingleMapper singleMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class SingleServiceImpl implements SingleService {
      */
     @Override
     public Single queryById(Integer sinId) {
-        return this.singleDao.queryById(sinId);
+        return this.singleMapper.queryById(sinId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class SingleServiceImpl implements SingleService {
      */
     @Override
     public List<Single> queryAllByLimit(int offset, int limit) {
-        return this.singleDao.queryAllByLimit(offset, limit);
+        return this.singleMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class SingleServiceImpl implements SingleService {
      */
     @Override
     public Single insert(Single single) {
-        this.singleDao.insert(single);
+        this.singleMapper.insert(single);
         return single;
     }
 
@@ -61,7 +62,7 @@ public class SingleServiceImpl implements SingleService {
      */
     @Override
     public Single update(Single single) {
-        this.singleDao.update(single);
+        this.singleMapper.update(single);
         return this.queryById(single.getSinId());
     }
 
@@ -73,6 +74,6 @@ public class SingleServiceImpl implements SingleService {
      */
     @Override
     public boolean deleteById(Integer sinId) {
-        return this.singleDao.deleteById(sinId) > 0;
+        return this.singleMapper.deleteById(sinId) > 0;
     }
 }

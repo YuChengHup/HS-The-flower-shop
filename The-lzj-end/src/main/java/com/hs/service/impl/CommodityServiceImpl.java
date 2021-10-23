@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Commodity;
+import com.hs.mapper.CommodityMapper;
 import com.hs.service.CommodityService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("commodityService")
 public class CommodityServiceImpl implements CommodityService {
     @Resource
-    private CommodityDao commodityDao;
+    private CommodityMapper commodityMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class CommodityServiceImpl implements CommodityService {
      */
     @Override
     public Commodity queryById(Integer comId) {
-        return this.commodityDao.queryById(comId);
+        return this.commodityMapper.queryById(comId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class CommodityServiceImpl implements CommodityService {
      */
     @Override
     public List<Commodity> queryAllByLimit(int offset, int limit) {
-        return this.commodityDao.queryAllByLimit(offset, limit);
+        return this.commodityMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class CommodityServiceImpl implements CommodityService {
      */
     @Override
     public Commodity insert(Commodity commodity) {
-        this.commodityDao.insert(commodity);
+        this.commodityMapper.insert(commodity);
         return commodity;
     }
 
@@ -61,7 +62,7 @@ public class CommodityServiceImpl implements CommodityService {
      */
     @Override
     public Commodity update(Commodity commodity) {
-        this.commodityDao.update(commodity);
+        this.commodityMapper.update(commodity);
         return this.queryById(commodity.getComId());
     }
 
@@ -73,6 +74,6 @@ public class CommodityServiceImpl implements CommodityService {
      */
     @Override
     public boolean deleteById(Integer comId) {
-        return this.commodityDao.deleteById(comId) > 0;
+        return this.commodityMapper.deleteById(comId) > 0;
     }
 }

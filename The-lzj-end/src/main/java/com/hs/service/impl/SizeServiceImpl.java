@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Size;
+import com.hs.mapper.SizeMapper;
 import com.hs.service.SizeService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("sizeService")
 public class SizeServiceImpl implements SizeService {
     @Resource
-    private SizeDao sizeDao;
+    private SizeMapper sizeMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class SizeServiceImpl implements SizeService {
      */
     @Override
     public Size queryById(Integer sizId) {
-        return this.sizeDao.queryById(sizId);
+        return this.sizeMapper.queryById(sizId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class SizeServiceImpl implements SizeService {
      */
     @Override
     public List<Size> queryAllByLimit(int offset, int limit) {
-        return this.sizeDao.queryAllByLimit(offset, limit);
+        return this.sizeMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class SizeServiceImpl implements SizeService {
      */
     @Override
     public Size insert(Size size) {
-        this.sizeDao.insert(size);
+        this.sizeMapper.insert(size);
         return size;
     }
 
@@ -61,7 +62,7 @@ public class SizeServiceImpl implements SizeService {
      */
     @Override
     public Size update(Size size) {
-        this.sizeDao.update(size);
+        this.sizeMapper.update(size);
         return this.queryById(size.getSizId());
     }
 
@@ -73,6 +74,6 @@ public class SizeServiceImpl implements SizeService {
      */
     @Override
     public boolean deleteById(Integer sizId) {
-        return this.sizeDao.deleteById(sizId) > 0;
+        return this.sizeMapper.deleteById(sizId) > 0;
     }
 }

@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Location;
+import com.hs.mapper.LocationMapper;
 import com.hs.service.LocationService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("locationService")
 public class LocationServiceImpl implements LocationService {
     @Resource
-    private LocationDao locationDao;
+    private LocationMapper locationMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class LocationServiceImpl implements LocationService {
      */
     @Override
     public Location queryById(Integer locId) {
-        return this.locationDao.queryById(locId);
+        return this.locationMapper.queryById(locId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class LocationServiceImpl implements LocationService {
      */
     @Override
     public List<Location> queryAllByLimit(int offset, int limit) {
-        return this.locationDao.queryAllByLimit(offset, limit);
+        return this.locationMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class LocationServiceImpl implements LocationService {
      */
     @Override
     public Location insert(Location location) {
-        this.locationDao.insert(location);
+        this.locationMapper.insert(location);
         return location;
     }
 
@@ -61,7 +62,7 @@ public class LocationServiceImpl implements LocationService {
      */
     @Override
     public Location update(Location location) {
-        this.locationDao.update(location);
+        this.locationMapper.update(location);
         return this.queryById(location.getLocId());
     }
 
@@ -73,6 +74,6 @@ public class LocationServiceImpl implements LocationService {
      */
     @Override
     public boolean deleteById(Integer locId) {
-        return this.locationDao.deleteById(locId) > 0;
+        return this.locationMapper.deleteById(locId) > 0;
     }
 }
