@@ -16,5 +16,13 @@
     <!--    开启注解驱动-->
     <mvc:annotation-driven/>
 
+    <!-- Token拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/admin/*"/>
+            <bean class="com.hs.interceptor.TokenInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
