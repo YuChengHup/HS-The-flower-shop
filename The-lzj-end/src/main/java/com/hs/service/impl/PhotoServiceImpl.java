@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Photo;
+import com.hs.mapper.PhotoMapper;
 import com.hs.service.PhotoService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("photoService")
 public class PhotoServiceImpl implements PhotoService {
     @Resource
-    private PhotoDao photoDao;
+    private PhotoMapper photoMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class PhotoServiceImpl implements PhotoService {
      */
     @Override
     public Photo queryById(Integer phoId) {
-        return this.photoDao.queryById(phoId);
+        return this.photoMapper.queryById(phoId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class PhotoServiceImpl implements PhotoService {
      */
     @Override
     public List<Photo> queryAllByLimit(int offset, int limit) {
-        return this.photoDao.queryAllByLimit(offset, limit);
+        return this.photoMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class PhotoServiceImpl implements PhotoService {
      */
     @Override
     public Photo insert(Photo photo) {
-        this.photoDao.insert(photo);
+        this.photoMapper.insert(photo);
         return photo;
     }
 
@@ -61,7 +62,7 @@ public class PhotoServiceImpl implements PhotoService {
      */
     @Override
     public Photo update(Photo photo) {
-        this.photoDao.update(photo);
+        this.photoMapper.update(photo);
         return this.queryById(photo.getPhoId());
     }
 
@@ -73,6 +74,6 @@ public class PhotoServiceImpl implements PhotoService {
      */
     @Override
     public boolean deleteById(Integer phoId) {
-        return this.photoDao.deleteById(phoId) > 0;
+        return this.photoMapper.deleteById(phoId) > 0;
     }
 }

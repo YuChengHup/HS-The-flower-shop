@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Cart;
+import com.hs.mapper.CartMapper;
 import com.hs.service.CartService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("cartService")
 public class CartServiceImpl implements CartService {
     @Resource
-    private CartDao cartDao;
+    private CartMapper cartMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public Cart queryById(Integer carId) {
-        return this.cartDao.queryById(carId);
+        return this.cartMapper.queryById(carId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public List<Cart> queryAllByLimit(int offset, int limit) {
-        return this.cartDao.queryAllByLimit(offset, limit);
+        return this.cartMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public Cart insert(Cart cart) {
-        this.cartDao.insert(cart);
+        this.cartMapper.insert(cart);
         return cart;
     }
 
@@ -61,7 +62,7 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public Cart update(Cart cart) {
-        this.cartDao.update(cart);
+        this.cartMapper.update(cart);
         return this.queryById(cart.getCarId());
     }
 
@@ -73,6 +74,6 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public boolean deleteById(Integer carId) {
-        return this.cartDao.deleteById(carId) > 0;
+        return this.cartMapper.deleteById(carId) > 0;
     }
 }

@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Logistic;
+import com.hs.mapper.LogisticMapper;
 import com.hs.service.LogisticService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("logisticService")
 public class LogisticServiceImpl implements LogisticService {
     @Resource
-    private LogisticDao logisticDao;
+    private LogisticMapper logisticMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class LogisticServiceImpl implements LogisticService {
      */
     @Override
     public Logistic queryById(String logId) {
-        return this.logisticDao.queryById(logId);
+        return this.logisticMapper.queryById(logId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class LogisticServiceImpl implements LogisticService {
      */
     @Override
     public List<Logistic> queryAllByLimit(int offset, int limit) {
-        return this.logisticDao.queryAllByLimit(offset, limit);
+        return this.logisticMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class LogisticServiceImpl implements LogisticService {
      */
     @Override
     public Logistic insert(Logistic logistic) {
-        this.logisticDao.insert(logistic);
+        this.logisticMapper.insert(logistic);
         return logistic;
     }
 
@@ -61,7 +62,7 @@ public class LogisticServiceImpl implements LogisticService {
      */
     @Override
     public Logistic update(Logistic logistic) {
-        this.logisticDao.update(logistic);
+        this.logisticMapper.update(logistic);
         return this.queryById(logistic.getLogId());
     }
 
@@ -73,6 +74,6 @@ public class LogisticServiceImpl implements LogisticService {
      */
     @Override
     public boolean deleteById(String logId) {
-        return this.logisticDao.deleteById(logId) > 0;
+        return this.logisticMapper.deleteById(logId) > 0;
     }
 }

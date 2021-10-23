@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Orders;
+import com.hs.mapper.OrdersMapper;
 import com.hs.service.OrdersService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("ordersService")
 public class OrdersServiceImpl implements OrdersService {
     @Resource
-    private OrdersDao ordersDao;
+    private OrdersMapper ordersMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class OrdersServiceImpl implements OrdersService {
      */
     @Override
     public Orders queryById(Integer ordId) {
-        return this.ordersDao.queryById(ordId);
+        return this.ordersMapper.queryById(ordId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class OrdersServiceImpl implements OrdersService {
      */
     @Override
     public List<Orders> queryAllByLimit(int offset, int limit) {
-        return this.ordersDao.queryAllByLimit(offset, limit);
+        return this.ordersMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class OrdersServiceImpl implements OrdersService {
      */
     @Override
     public Orders insert(Orders orders) {
-        this.ordersDao.insert(orders);
+        this.ordersMapper.insert(orders);
         return orders;
     }
 
@@ -61,7 +62,7 @@ public class OrdersServiceImpl implements OrdersService {
      */
     @Override
     public Orders update(Orders orders) {
-        this.ordersDao.update(orders);
+        this.ordersMapper.update(orders);
         return this.queryById(orders.getOrdId());
     }
 
@@ -73,6 +74,6 @@ public class OrdersServiceImpl implements OrdersService {
      */
     @Override
     public boolean deleteById(Integer ordId) {
-        return this.ordersDao.deleteById(ordId) > 0;
+        return this.ordersMapper.deleteById(ordId) > 0;
     }
 }

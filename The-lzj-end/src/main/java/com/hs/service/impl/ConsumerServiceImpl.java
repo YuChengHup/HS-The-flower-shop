@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Consumer;
+import com.hs.mapper.ConsumerMapper;
 import com.hs.service.ConsumerService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("consumerService")
 public class ConsumerServiceImpl implements ConsumerService {
     @Resource
-    private ConsumerDao consumerDao;
+    private ConsumerMapper consumerMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class ConsumerServiceImpl implements ConsumerService {
      */
     @Override
     public Consumer queryById(Integer conId) {
-        return this.consumerDao.queryById(conId);
+        return this.consumerMapper.queryById(conId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class ConsumerServiceImpl implements ConsumerService {
      */
     @Override
     public List<Consumer> queryAllByLimit(int offset, int limit) {
-        return this.consumerDao.queryAllByLimit(offset, limit);
+        return this.consumerMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class ConsumerServiceImpl implements ConsumerService {
      */
     @Override
     public Consumer insert(Consumer consumer) {
-        this.consumerDao.insert(consumer);
+        this.consumerMapper.insert(consumer);
         return consumer;
     }
 
@@ -61,7 +62,7 @@ public class ConsumerServiceImpl implements ConsumerService {
      */
     @Override
     public Consumer update(Consumer consumer) {
-        this.consumerDao.update(consumer);
+        this.consumerMapper.update(consumer);
         return this.queryById(consumer.getConId());
     }
 
@@ -73,6 +74,6 @@ public class ConsumerServiceImpl implements ConsumerService {
      */
     @Override
     public boolean deleteById(Integer conId) {
-        return this.consumerDao.deleteById(conId) > 0;
+        return this.consumerMapper.deleteById(conId) > 0;
     }
 }

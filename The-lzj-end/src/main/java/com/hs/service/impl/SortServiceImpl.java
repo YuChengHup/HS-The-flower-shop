@@ -1,6 +1,7 @@
 package com.hs.service.impl;
 
 import com.hs.entity.Sort;
+import com.hs.mapper.SortMapper;
 import com.hs.service.SortService;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Service("sortService")
 public class SortServiceImpl implements SortService {
     @Resource
-    private SortDao sortDao;
+    private SortMapper sortMapper;
 
     /**
      * 通过ID查询单条数据
@@ -26,7 +27,7 @@ public class SortServiceImpl implements SortService {
      */
     @Override
     public Sort queryById(Integer sorId) {
-        return this.sortDao.queryById(sorId);
+        return this.sortMapper.queryById(sorId);
     }
 
     /**
@@ -38,7 +39,7 @@ public class SortServiceImpl implements SortService {
      */
     @Override
     public List<Sort> queryAllByLimit(int offset, int limit) {
-        return this.sortDao.queryAllByLimit(offset, limit);
+        return this.sortMapper.queryAllByLimit(offset, limit);
     }
 
     /**
@@ -49,7 +50,7 @@ public class SortServiceImpl implements SortService {
      */
     @Override
     public Sort insert(Sort sort) {
-        this.sortDao.insert(sort);
+        this.sortMapper.insert(sort);
         return sort;
     }
 
@@ -61,7 +62,7 @@ public class SortServiceImpl implements SortService {
      */
     @Override
     public Sort update(Sort sort) {
-        this.sortDao.update(sort);
+        this.sortMapper.update(sort);
         return this.queryById(sort.getSorId());
     }
 
@@ -73,6 +74,6 @@ public class SortServiceImpl implements SortService {
      */
     @Override
     public boolean deleteById(Integer sorId) {
-        return this.sortDao.deleteById(sorId) > 0;
+        return this.sortMapper.deleteById(sorId) > 0;
     }
 }
